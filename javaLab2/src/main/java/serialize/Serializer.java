@@ -5,6 +5,6 @@ import java.io.IOException;
 import java.io.File;
 
 public interface Serializer<T extends Animal> {
-	void Serialize(T obj, File file) throws IOException;
-	T Deserialize(File file) throws IOException;
+	void serialize(T obj, File file) throws IOException;
+	T deserialize(File file) throws IOException;
 }

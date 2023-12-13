@@ -10,7 +10,7 @@ import java.io.IOException;
 public class TXTSerializer implements Serializer<Animal> {
 
 	@Override
-	public void Serialize(Animal obj, File file) throws IOException {
+	public void serialize(Animal obj, File file) throws IOException {
 		try(FileWriter fw = new FileWriter(file)){
 			String str = "Name: " + ((models.Animal) obj).getName() + " Age: " + ((models.Animal) obj).getAge() + " Weight: " + ((models.Animal) obj).getWeight();
 			fw.write(str);
@@ -21,18 +21,26 @@ public class TXTSerializer implements Serializer<Animal> {
 	}
 
 	@Override
-	public Animal Deserialize(File file) throws IOException {
+	public Animal deserialize(File file) throws IOException {
 		try(FileReader fr = new FileReader(file)){
-			String str = "";
+			String str = getStr();
 			int c;
 			while((c = fr.read()) != -1)
 				str += (char)c;
-			String[] values = str.split(" ");
+			String[] values = str.split(getSpace());
 			return  new Animal(Integer.parseInt(values[3]), Double.parseDouble(values[5]), values[1]);
 		}
 		catch (IOException e) {
             throw new RuntimeException(e.getMessage());
         }
+	}
+
+	private static String getStr() {
+		return "";
+	}
+
+	private static String getSpace() {
+		return " ";
 	}
 
 }

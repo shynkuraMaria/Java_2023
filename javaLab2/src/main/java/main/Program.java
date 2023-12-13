@@ -16,8 +16,8 @@ public class Program {
 		Cat CatJSON = new Cat(2, 7.9, "Fluffy", "White", Categories.longHaired);
 		try {
 			File json = new File(myDir,"Cat.json");
-			mySerJSON.Serialize(CatJSON, json);
-			CatJSON = mySerJSON.Deserialize(json);
+			mySerJSON.serialize(CatJSON, json);
+			CatJSON = mySerJSON.deserialize(json);
 			System.out.println(CatJSON);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -27,8 +27,8 @@ public class Program {
 		Tiger TigerXML = new Tiger(5, 80.1, "Kitty", "Orange", Categories.shortHaired, 2);
 		try {
 			File xml = new File(myDir,"Tiger.xml");
-			mySerXML.Serialize(TigerXML, xml);
-			TigerXML = mySerXML.Deserialize(xml);
+			mySerXML.serialize(TigerXML, xml);
+			TigerXML = mySerXML.deserialize(xml);
 			System.out.println(TigerXML);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -38,8 +38,8 @@ public class Program {
 		Animal AnimalTXT = new Animal(5, 14.2, "Yummy");
 		try {
 			File txt = new File(myDir,"Animal.txt");
-			mySerTxt.Serialize(AnimalTXT, txt);
-			AnimalTXT = mySerTxt.Deserialize(txt);
+			mySerTxt.serialize(AnimalTXT, txt);
+			AnimalTXT = mySerTxt.deserialize(txt);
 			System.out.println(AnimalTXT);
 		} catch (IOException e) {
 			e.printStackTrace();

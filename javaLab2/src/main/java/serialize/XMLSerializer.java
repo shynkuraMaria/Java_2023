@@ -17,7 +17,7 @@ public class XMLSerializer<T extends Animal> implements Serializer<T> {
     }
     
 	@Override
-	public void Serialize(T obj, File file) throws IOException {
+	public void serialize(T obj, File file) throws IOException {
 		try {
 			mapper.writeValue(file, obj);
 		} 
@@ -27,7 +27,7 @@ public class XMLSerializer<T extends Animal> implements Serializer<T> {
 	}
 
 	@Override
-	public T Deserialize(File file) throws IOException {
+	public T deserialize(File file) throws IOException {
 		try {
             return mapper.readValue(file, myClass);
         } 
