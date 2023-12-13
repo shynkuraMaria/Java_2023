@@ -3,8 +3,7 @@ package postgreSQL;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.SQLException;
-import java.sql.ResultSet;
-import models.*;
+
 public class QueryTool {
 	
 	private static final String create = "CREATE TABLE IF NOT EXISTS %s(id serial, %s, PRIMARY KEY(id));";
@@ -19,11 +18,11 @@ public class QueryTool {
 	private static final String tiger_create_attribute = cat_create_attribute + ", numOfEmployee int4";
 	
 	private static void Execute(String query) throws SQLException {
-		Connection connection = Connector.Connect();
+		Connection connection = Connector.connect();
 		if (connection != null) {
 		Statement statement = connection.createStatement();
 		statement.executeUpdate(query);
-		Connector.Disconnect(connection);
+		Connector.disconnect(connection);
 		}
 	}
 	

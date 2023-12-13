@@ -10,7 +10,7 @@ public class Connector {
 		private static final String USER = "java";
 		private static final String PASS = "12345";
 		
-	public static Connection Connect() throws SQLException{
+	public static Connection connect() throws SQLException{
 
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -27,7 +27,7 @@ public class Connector {
 		return connection;
 	}
 	
-	public static void Disconnect(Connection connection) throws SQLException {
+	public static void disconnect(Connection connection) throws SQLException {
 			connection.close();
 	}
 }
